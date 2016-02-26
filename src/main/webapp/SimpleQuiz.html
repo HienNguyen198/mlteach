@@ -1,0 +1,129 @@
+<html> <HEAD>
+
+<style type="text/css">
+<!--.bgclr {background-color: white; color: black; font-weight: bold;}
+-->
+</style>
+
+<script type="text/javascript">
+// Do not change anything below here ...
+
+// Insert number of questions
+var numQues = 5;
+
+// Insert number of choices in each question
+var numChoi = 5;
+
+// Insert number of questions displayed in answer area
+var answers = new Array(4);
+
+// Insert answers to questions
+answers[0] = "Ability to learn";
+answers[1] = "training set";
+answers[2] = "answer";
+answers[3] = "count";
+answers[4] = "none";
+
+
+function getScore(form) {
+   alert("we are here");
+   var score = 0;
+     var currElt;
+     var currSelection;
+     for (i=0; i<numQues; i++) {
+       currElt = i*numChoi;
+       for (j=0; j<numChoi; j++) {
+         currSelection = form.elements[currElt + j];
+         if (currSelection.checked) {
+           if (currSelection.value == answers[i]) {
+             score++;
+             break;
+           }
+         }
+       }
+     }
+     score = Math.round(score/numQues*100);
+     //form.percentage.value = score + "%";
+     var correctAnswers = "";
+     for (i=1; i<=numQues; i++) {
+       correctAnswers += i + ". " + answers[i-1] + "\r\n";
+     }
+     alert("score="+score+" correct answers ="+correctAnswers);
+     //form.solutions.value = correctAnswers;
+
+
+
+}
+</script>
+</HEAD>
+
+<BODY>
+
+<center> <h3> Machine Leaarning and k-NN pre-test </h3> </center>
+This is the pre-assessment to learn about prior knowledge of machine learning. It helps us to position a student to where you should start in our tutorial. It will take about 5 minutes at most. If you know the answer for a question, please choose your answer. If you haven't heard about the concept being asked, please click on "I haven't learned it yet". <br>
+
+Do your best to answer each question. Thank you.
+
+<form name="pretest" action ="preTest" method ="GET">
+Question 1 of 5 <br>
+1. Which of these is a reasonable definition of machine learning (10 points) ?
+<ul style="margin-top: 1pt">
+  <li><input type="radio" name="q1" value="Ability to learn"> Machine learning is the field of study that gives the computers the ability to learn without being explicitly programmed </li>
+  <li><input type="radio" name="q1" value="Programming computers"> Machine learning is the science of programming computers</li>
+  <li><input type="radio" name="q1" value="Labelled data">Machine learning means learning from labelled data</li>
+  <li><input type="radio" name="q1" value="Acting robots">Machine learning is the field of allowing robots to act intelligently</li>
+  <li><input type="radio" name="q1" value="Not learned"> I have not learned this concept yet</li>
+  </ul>
+
+2. Question 2 of 5 <br>
+k-nearest neighbor (kNN) classification does the following: (10 points) ?
+<ul style="margin-top: 1pt">
+  <li><input type="radio" name="q2" value="kObject">Finds a group of k objcts that are in the neighborhood of the given object.</li>
+  <li><input type="radio" name="q2" value="similar feature">Finds a group that has k objects with similar feature values of the given object.</li>
+  <li><input type="radio" name="q2" value="training set">Find a group of k objects in the training set that are the closest to the test object. The assignment of a label on the predominance of a particulr classs in this neighborhood</li>
+  <li><input type="radio" name="q2" value="distance">Finds a group that has the shortest distances to the given object </li>
+  <li><input type="radio" name="q2" value="Not learned"> I have not learned this concept yet</li>
+</ul>
+
+3. Question 3 of 5.
+What does algorithm using Intance-learning mean? (10 points)
+<ul style="margin-top: 1pt">
+  <li><input type="radio" name="q3" value="hypothesis">Each new instance updates the hypothesis</li>
+  <li><input type="radio" name="q3" value="learn">The algorithm continues to learn while seeing new data</li>
+  <li><input type="radio" name="q3" value="answer">The algorithm stores the set of training instances to answer unseen data</li>
+  <li><input type="radio" name="q3" value="all">All of the above</li>
+  <li><input type="radio" name="q3" value="Not learned"> I have not learned this concept yet</li>
+
+</ul>
+
+4. Question 4 of 5
+The winner takes all strategy implies that we: (10 points)
+<ul style="margin-top: 1pt">
+  <li><input type="radio" name="q4" value="nearest"> The the nearest neighbor as the label classfication</li>
+  <li><input type="radio" name="q4" value="farthest">The take farthest neighbor as the label classification</li>
+  <li><input type="radio" name="q4" value="count">Count the number of each label type in our neighborhood and choose the largest representation</li>
+  <li><input type="radio" name="q4" value="none">None of the above</li>
+  <li><input type="radio" name="q4" value="Not learned"> I have not learned this concept yet</li>
+
+</ul>
+
+5. Question 5 of 5
+How many parameters does kNN have (10 points)
+<ul style="margin-top: 1pt">
+  <li><input type="radio" name="q5" value="feature"> A kNN has as many parameters as it does features</li>
+  <li><input type="radio" name="q5" value="none">kNN does not have any parameters</li>
+  <li><input type="radio" name="q5" value="instance">kNN has as many parameters as it does instances</li>
+  <li><input type="radio" name="q5" value="all">All of the above</li>
+ <li><input type="radio" name="q5" value="Not learned"> I have not learned this concept yet</li>
+
+</ul>
+
+
+<!--<input type="button" value="Click button" onClick="getScore(this.form)"> --> 
+
+<input type="submit" value ="Submit">
+</form>
+
+
+
+</body> </html>
